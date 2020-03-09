@@ -134,9 +134,30 @@ body
     transition: 500ms;
 }
 
+.option
+{
+    display: flex;
+    justify-content: start;
+    align-items: flex-start;
+    margin: 10px;
+}
+
 .option:hover
 {
     color: steelblue;
     transition: 300ms;
     cursor: pointer;
+}
+
+input[type="radio"] 
+{
+    width: 20px;
+    height: 20px;
+    border: none;
+    margin-top: 10px;
+}
+
+input:checked
+{
+    background-color: lawngreen;
 }

@@ -11,7 +11,7 @@ var questionsArray =
     },
     {
         "id": 2,
-        "Qtext": "DO YOU LIVE IN ITALY OR CHINE ?",
+        "Qtext": "DO YOU LIVE IN ITALY OR CHINA ?",
         "ans": 
         [
             "YES",
@@ -56,6 +56,7 @@ var question = document.querySelector('.question');
 var answer = document.querySelector('.answer');
 var next = document.querySelector('.next');
 var pre = document.querySelector('.pre');
+var correct = [];
 var qNum = 0;
 
 
@@ -68,25 +69,43 @@ quiz.addEventListener('click', () =>
 
 next.addEventListener('click', () => 
 {
+    if(qNum !== 0)
+    {
+        saveAns(qNum);
+    }
+    
     answer.innerHTML="";
     question.innerHTML = 
     `
     <div>${questionsArray[qNum].Qtext}</div>
     `;
-
+    
     answer.innerHTML = 
     `
-   ${displayAnswers(questionsArray[qNum].ans)}
+    ${displayAnswers(questionsArray[qNum].ans)}
     `;
-
-    ++qNum;
+    
+    if( qNum !== questionsArray.length )
+    {
+        ++qNum;
+    }
+    console.log(qNum);
+    
+    if(qNum == questionsArray.length)
+    {
+        console.log('finished the quiz');
+        answer.innerHTML= "FINISHED THE QUIZ GO TO RESULTS";
+    }
 });
 
 
 pre.addEventListener('click', () => 
-{
+{ 
+    if(qNum !== 0)
+    {
+        --qNum;
+    }
     answer.innerHTML="";
-    --qNum;
     question.innerHTML = 
     `
     <div>${questionsArray[qNum].Qtext}</div>
@@ -96,22 +115,32 @@ pre.addEventListener('click', () =>
     `
     ${displayAnswers(questionsArray[qNum].ans)}
     `;
-});
+}); 
 
-console.log(questionsArray[qNum].ans);
 
 var displayAnswers = (answersObj) =>
 {
-    console.log(answersObj)
-   
-    for (let i = 0; i < answersObj.length; i++) {
+    for (let i = 0; i < answersObj.length; i++) 
+    {
         answer.innerHTML += 
             `
-                <div class="option">${i + 1} -  ${ answersObj[i] }</div>
+                <div class="option"><input type="radio" name="option" value="${ answersObj[i] }" />${i + 1} -  ${ answersObj[i] }</div>
             `;
     }
+
     return answer.innerHTML;
 }
 
-
-
+var saveAns = (n) =>
+{
+    let chosen = document.querySelector('input:checked')
+    --n;
+    for (let i = 0; i < questionsArray[n].ans.length; i++) 
+    {
+        if(chosen.value == questionsArray[n].ans[i])
+        {
+            correct.push(questionsArray[n].ans[i]);
+            break;
+        }
+    }
+}
