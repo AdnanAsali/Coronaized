@@ -245,12 +245,12 @@ pre.addEventListener('click', () =>
     answer.innerHTML="";
     question.innerHTML = 
     `
-    <div>${questionsArray[qNum].Qtext}</div>
+    <div>${questionsArray[qNum-1].Qtext}</div>
     `;
 
     answer.innerHTML = 
     `
-    ${displayAnswers(questionsArray[qNum].ans)}
+    ${displayAnswers(questionsArray[qNum-1].ans)}
     `;
 }); 
 
