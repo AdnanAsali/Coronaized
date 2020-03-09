@@ -144,3 +144,16 @@ var saveAns = (n) =>
         }
     }
 }
+
+/**
+ * TODO:
+ * 
+ * 1. Local Storage instead of a DB.
+ * 2. Previous Button show the chosen result when clicked.
+ * 3. Show results using ChartJS and a text and the sources of the data, 
+      and the formula of the result. 
+ * 4. ADS
+ * 5. Testing
+ * 6. Hosing
+ * 
+ *  */  
