@@ -204,6 +204,8 @@ quiz.addEventListener('click', () =>
 
 next.addEventListener('click', () => 
 {
+    console.log(correct);
+
     if(qNum !== 0)
     {
         saveAns(qNum);
@@ -257,10 +259,20 @@ var displayAnswers = (answersObj) =>
 {
     for (let i = 0; i < answersObj.length; i++) 
     {
-        answer.innerHTML += 
+        if(correct.includes(answersObj[i]))
+        {
+            answer.innerHTML += 
+            `
+                <div class="option"><input type="radio" name="option" checked value="${ answersObj[i] }" />${i + 1} -  ${ answersObj[i] }</div>
+            `;
+        }
+        else
+        {
+            answer.innerHTML += 
             `
                 <div class="option"><input type="radio" name="option" value="${ answersObj[i] }" />${i + 1} -  ${ answersObj[i] }</div>
             `;
+        }
     }
 
     return answer.innerHTML;
@@ -284,7 +296,7 @@ var saveAns = (n) =>
  * TODO:
  * 
  * 1. Local Storage instead of a DB.
- * 2. Previous Button show the chosen result when clicked.
+ * [DONE] 2. Previous Button show the chosen result when clicked.
  * 3. Show results using ChartJS and a text and the sources of the data, 
       and the formula of the result. 
  * 4. Responsiveness.     
