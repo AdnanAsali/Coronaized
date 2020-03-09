@@ -152,8 +152,9 @@ var saveAns = (n) =>
  * 2. Previous Button show the chosen result when clicked.
  * 3. Show results using ChartJS and a text and the sources of the data, 
       and the formula of the result. 
- * 4. ADS
- * 5. Testing
- * 6. Hosing
+ * 4. Responsiveness.     
+ * 6. ADS.
+ * 7. Testing.
+ * 8. Hosing.
  * 
  *  */  
