@@ -1,12 +1,12 @@
-var questionsArray = 
+var questionsArray = // Score starts at 0.2%
 [
     {
         "id": 1,
         "Qtext": "HOW OLD ARE YOU?",
         "ans": 
         [
-            "YOUNGER THAN 40",
-            "OLDER THAN 40",
+            "YOUNGER THAN 40", // + 0%
+            "OLDER THAN 40", // + 3%
         ]
     },
     {
@@ -14,8 +14,8 @@ var questionsArray =
         "Qtext": "DO YOU LIVE IN CHINA?",
         "ans": 
         [
-            "YES",
-            "NO",
+            "YES", // + 1%
+            "NO", // + 0%
         ]
     },
     {
@@ -23,9 +23,9 @@ var questionsArray =
         "Qtext": "HOW MANY TIMES DO YOU WASH YOUR HANDS WITH SOAP PER DAY?",
         "ans": 
         [
-            "1 OR 2 TIMES",
-            "3 TO 5 TIMES",
-            "MORE THAN 5 TIMES"
+            "1 OR 2 TIMES", // + 0.03%
+            "3 TO 5 TIMES", // + 0%
+            "MORE THAN 5 TIMES" // - 0.03%
         ]
     },
     {
@@ -33,9 +33,9 @@ var questionsArray =
         "Qtext": "HOW LONG DO YOU WASH YOUR HANDS FOR?",
         "ans": 
         [
-            "LESS THAN 10 SECONDS",
-            "10 TO 20 SECONDS",
-            "20 SECONDS OR MORE"
+            "LESS THAN 10 SECONDS", // + 0.03%
+            "10 TO 20 SECONDS", // + 0.03%
+            "20 SECONDS OR MORE" // + 0%
         ]
     },
     {
@@ -43,8 +43,8 @@ var questionsArray =
         "Qtext": "DO YOU USE AN ALCOHOL-BASED HAND SANITIZER THROUGHOUT THE DAY?",
         "ans": 
         [
-            "YES",
-            "NO",
+            "YES", // + 0%
+            "NO", // + 0.03%
         ]
     },
     {
@@ -52,152 +52,134 @@ var questionsArray =
         "Qtext": "DO YOU SHAKE HANDS, HUG, OR KISS PEOPLE?",
         "ans": 
         [
-            "YES",
-            "NO",
+            "YES", // + 0.03%
+            "NO", // + 0%
         ]
     },
     {
         "id": 7,
-        "Qtext": "DO YOU SHAKE HANDS, HUG, OR KISS PEOPLE?",
+        "Qtext": "DO YOU WEAR A MASK WITH FFP2 OR FFP3 BASED FILTER?",
         "ans": 
         [
-            "YES",
-            "NO",
+            "YES", // + 0%
+            "NO", // + 0.03%
         ]
     },
     {
         "id": 8,
-        "Qtext": "DO YOU WEAR A MASK WITH FFP2 OR FFP3 BASED FILTER?",
+        "Qtext": "DO YOU KEEP AT LEAST ONE METER AWAY FROM OTHER PEOPLE?",
         "ans": 
         [
-            "YES",
-            "NO",
+            "YES", // + 0%
+            "NO", // + 0.03%
         ]
     },
     {
         "id": 9,
-        "Qtext": "DO YOU KEEP AT LEAST ONE METER AWAY FROM OTHER PEOPLE?",
+        "Qtext": "DO YOU TOUCH YOUR EYES, NOSE OR MOUTH WITH YOUR HANDS?",
         "ans": 
         [
-            "YES",
-            "NO",
+            "YES", // + 0.03%
+            "NO", // + 0%
         ]
     },
     {
         "id": 10,
-        "Qtext": "DO YOU TOUCH YOUR EYES, NOSE OR MOUTH WITH YOUR HANDS?",
+        "Qtext": "DO YOU COVER YOUR MOUTH AND NOSE WHEN YOU SNEEZE OR COUGH?",
         "ans": 
         [
-            "YES",
-            "NO",
+            "YES", // + 0%
+            "NO", // + 0.03%
         ]
     },
     {
         "id": 11,
-        "Qtext": "DO YOU COVER YOUR MOUTH AND NOSE WHEN YOU SNEEZE OR COUGH?",
+        "Qtext": "DO YOU CLEAN THE SURFACES WITH CHLORINE DISINFECTANTS OR ALCOHOL-BASED PRODUCTS?",
         "ans": 
         [
-            "YES",
-            "NO",
+            "YES", // + 0%
+            "NO", // + 0.03%
         ]
     },
     {
         "id": 12,
-        "Qtext": "DO YOU COVER YOUR MOUTH AND NOSE WHEN YOU SNEEZE OR COUGH?",
+        "Qtext": "DID YOU HAVE A RECENT TRIP TO CHINA?",
         "ans": 
         [
-            "YES",
-            "NO",
+            "YES", // + 1.5%
+            "NO", // + 0%
         ]
     },
     {
         "id": 13,
-        "Qtext": "DO YOU CLEAN THE SURFACES WITH CHLORINE DISINFECTANTS OR ALCOHOL-BASED PRODUCTS?",
+        "Qtext": "HAVE YOU BEEN IN CONTACT WITH PEOPLE BACK FROM CHINA?",
         "ans": 
         [
-            "YES",
-            "NO",
+            "YES", // + 1%
+            "NO", // + 0%
         ]
     },
     {
         "id": 14,
-        "Qtext": "DID YOU HAVE A RECENT TRIP TO CHINA?",
+        "Qtext": "DO YOU WEAR OVERLAPPING MASKS?",
         "ans": 
         [
-            "YES",
-            "NO",
+            "YES", // - 0.01%
+            "NO", // + 0.01%
         ]
     },
     {
         "id": 15,
-        "Qtext": "HAVE YOU BEEN IN CONTACT WITH PEOPLE BACK FROM CHINA?",
+        "Qtext": "WHEN YOU COUGH, DO YOU COVER YOUR MOUTH WITH YOUR HANDS?",
         "ans": 
         [
-            "YES",
-            "NO",
+            "YES", // + 0.4%
+            "NO", // + 0%
         ]
     },
     {
         "id": 16,
-        "Qtext": "DO YOU WEAR OVERLAPPING MASKS?",
+        "Qtext": "WHEN YOU COUGH, DO YOU COUGH INTO YOUR ELBOW?",
         "ans": 
         [
-            "YES",
-            "NO",
+            "YES", // - 0.02%
+            "NO", // + 0.02%
         ]
     },
     {
         "id": 17,
-        "Qtext": "WHEN YOU COUGH, DO YOU COVER YOUR MOUTH WITH YOUR HANDS?",
+        "Qtext": "WHEN YOU COUGH, DO YOU COUGH INTO A DISPOSABLE HANDKERCHIEF?",
         "ans": 
         [
-            "YES",
-            "NO",
+            "YES", // - 0.02%
+            "NO", // + 0.02%
         ]
     },
     {
         "id": 18,
-        "Qtext": "WHEN YOU COUGH, DO YOU COUGH INTO YOUR ELBOW?",
+        "Qtext": "DO YOU WASH YOUR HANDS WITH SOAP AFTER CONTACT WITH PETS/ANIMALS?",
         "ans": 
         [
-            "YES",
-            "NO",
+            "YES", // + 0%
+            "NO", // + 0.06%
         ]
     },
     {
         "id": 19,
-        "Qtext": "WHEN YOU COUGH, DO YOU COUGH INTO A DISPOSABLE HANDKERCHIEF?",
+        "Qtext": "DO YOU HAVE FEVER, COUGH, DIFFICULTY BREATHING, MUSCLE ACHES, OR FATIGUE?",
         "ans": 
         [
-            "YES",
-            "NO",
+            "YES", // + 5%
+            "NO", // + 0%
         ]
     },
     {
         "id": 20,
-        "Qtext": "DO YOU WASH YOUR HANDS WITH SOAP AFTER CONTACT WITH PETS/ANIMALS?",
-        "ans": 
-        [
-            "YES",
-            "NO",
-        ]
-    },
-    {
-        "id": 21,
-        "Qtext": "DO YOU HAVE FEVER, COUGH, DIFFICULTY BREATHING, MUSCLE ACHES, OR FATIGUE?",
-        "ans": 
-        [
-            "YES",
-            "NO",
-        ]
-    },
-    {
-        "id": 22,
         "Qtext": "IF ANSWERED YES, HOW WOULD YOU RATE THEIR INTENSITY?",
         "ans": 
         [
-            "NORMAL",
-            "STRONGER THAN USUAL",
+            "NORMAL", // + 0%
+            "STRONGER THAN USUAL", // + 10%
         ]
     },
 ];
