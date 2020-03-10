@@ -5,8 +5,12 @@ var questionsArray = // Score starts at 0.2%
         "Qtext": "HOW OLD ARE YOU?",
         "ans": 
         [
-            "YOUNGER THAN 40", // + 0%
-            "OLDER THAN 40", // + 3%
+            "0 - 39 YEARS OLD",
+            "40 - 49 YEARS OLD",
+            "50 - 59 YEARS OLD",
+            "60 - 69 YEARS OLD",
+            "70 - 79 YEARS OLD",
+            "80+ YEARS OLD"
         ]
     },
     {
@@ -189,10 +193,16 @@ var container = document.querySelector('.container');
 var header = document.querySelector('.header');
 var question = document.querySelector('.question');
 var answer = document.querySelector('.answer');
+
+var answered = [];
+var qNum = 1;
+
+var options;
 var next = document.querySelector('.next');
 var pre = document.querySelector('.pre');
-var correct = [];
-var qNum = 0;
+
+
+
 
 
 quiz.addEventListener('click', () => 
@@ -200,97 +210,139 @@ quiz.addEventListener('click', () =>
     quiz.style.display = "none";
     container.style.display = "flex";
     header.style.display = "none";
-});
+    
+    displayQ_A(1);
+    options = document.querySelectorAll('.option');
 
-next.addEventListener('click', () => 
-{
-    console.log(correct);
 
-    if(qNum !== 0)
+    options.forEach( op => 
     {
-        saveAns(qNum);
-    }
-    
-    answer.innerHTML="";
-    question.innerHTML = 
-    `
-    <div>${questionsArray[qNum].Qtext}</div>
-    `;
-    
-    answer.innerHTML = 
-    `
-    ${displayAnswers(questionsArray[qNum].ans)}
-    `;
-    
-    if( qNum !== questionsArray.length )
-    {
-        ++qNum;
-    }
-    console.log(qNum);
-    
-    if(qNum == questionsArray.length)
-    {
-        console.log('finished the quiz');
-        answer.innerHTML= "FINISHED THE QUIZ GO TO RESULTS";
-    }
+        op.addEventListener('click', () => 
+        {
+            console.log(answered.push(op.innerHTML) );
+        });
+    });
 });
 
 
-pre.addEventListener('click', () => 
-{ 
-    if(qNum !== 0)
-    {
-        --qNum;
-    }
-    answer.innerHTML="";
-    question.innerHTML = 
-    `
-    <div>${questionsArray[qNum-1].Qtext}</div>
-    `;
-
-    answer.innerHTML = 
-    `
-    ${displayAnswers(questionsArray[qNum-1].ans)}
-    `;
-}); 
-
-
-var displayAnswers = (answersObj) =>
+var displayQ_A = (n) => 
 {
-    for (let i = 0; i < answersObj.length; i++) 
+    questionsArray.forEach( e => 
     {
-        if(correct.includes(answersObj[i]))
+        if(e.id === n)
         {
-            answer.innerHTML += 
-            `
-                <div class="option"><input type="radio" name="option" checked value="${ answersObj[i] }" />${i + 1} -  ${ answersObj[i] }</div>
-            `;
+            question.innerHTML = e.Qtext;
+            e.ans.forEach( a => 
+            {
+            answer.innerHTML += `<div class="option">${a}</div>`;
+            });
         }
-        else
-        {
-            answer.innerHTML += 
-            `
-                <div class="option"><input type="radio" name="option" value="${ answersObj[i] }" />${i + 1} -  ${ answersObj[i] }</div>
-            `;
-        }
-    }
-
-    return answer.innerHTML;
+    });
 }
 
-var saveAns = (n) =>
-{
-    let chosen = document.querySelector('input:checked')
-    --n;
-    for (let i = 0; i < questionsArray[n].ans.length; i++) 
-    {
-        if(chosen.value == questionsArray[n].ans[i])
-        {
-            correct.push(questionsArray[n].ans[i]);
-            break;
-        }
-    }
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// next.addEventListener('click', () => 
+// {
+//     console.log(correct);
+
+//     if(qNum !== 0)
+//     {
+//         saveAns(qNum);
+//     }
+    
+//     answer.innerHTML="";
+//     question.innerHTML = 
+//     `
+//     <div>${questionsArray[qNum].Qtext}</div>
+//     `;
+    
+//     answer.innerHTML = 
+//     `
+//     ${displayAnswers(questionsArray[qNum].ans)}
+//     `;
+    
+//     if( qNum !== questionsArray.length )
+//     {
+//         ++qNum;
+//     }
+//     console.log(qNum);
+    
+//     if(qNum == questionsArray.length)
+//     {
+//         console.log('finished the quiz');
+//         answer.innerHTML= "FINISHED THE QUIZ GO TO RESULTS";
+//     }
+// });
+
+
+// pre.addEventListener('click', () => 
+// { 
+//     if(qNum !== 0)
+//     {
+//         --qNum;
+//     }
+//     answer.innerHTML="";
+//     question.innerHTML = 
+//     `
+//     <div>${questionsArray[qNum-1].Qtext}</div>
+//     `;
+
+//     answer.innerHTML = 
+//     `
+//     ${displayAnswers(questionsArray[qNum-1].ans)}
+//     `;
+// }); 
+
+
+// var displayAnswers = (answersObj) =>
+// {
+//     for (let i = 0; i < answersObj.length; i++) 
+//     {
+//         if(correct.includes(answersObj[i]))
+//         {
+//             answer.innerHTML += 
+//             `
+//                 <div class="option">${ answersObj[i]}</div>
+//             `;
+//         }
+//         else
+//         {
+//             answer.innerHTML += 
+//             `
+//                 <div class="option">${ answersObj[i] }</div>
+//             `;
+//         }
+//     }
+
+//     return answer.innerHTML;
+// }
+
+// var saveAns = (n) =>
+// {
+//     let chosen = document.querySelector('input:checked')
+//     --n;
+//     for (let i = 0; i < questionsArray[n].ans.length; i++) 
+//     {
+//         if(chosen.value == questionsArray[n].ans[i])
+//         {
+//             correct.push(questionsArray[n].ans[i]);
+//             break;
+//         }
+//     }
+// }
 
 /**
  * TODO:
