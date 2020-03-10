@@ -212,21 +212,14 @@ quiz.addEventListener('click', () =>
     header.style.display = "none";
     
     displayQ_A(1);
-    options = document.querySelectorAll('.option');
-
-
-    options.forEach( op => 
-    {
-        op.addEventListener('click', () => 
-        {
-            console.log(answered.push(op.innerHTML) );
-        });
-    });
+    enabling_options()
 });
 
 
 var displayQ_A = (n) => 
 {
+    question.innerHTML = "";
+    answer.innerHTML = "";
     questionsArray.forEach( e => 
     {
         if(e.id === n)
@@ -234,115 +227,27 @@ var displayQ_A = (n) =>
             question.innerHTML = e.Qtext;
             e.ans.forEach( a => 
             {
-            answer.innerHTML += `<div class="option">${a}</div>`;
+                answer.innerHTML += `<div class="option">${a}</div>`;
             });
         }
     });
+    enabling_options()
 }
 
 
+var enabling_options = () =>
+{
+    options = document.querySelectorAll('.option');
 
-
-
-
-
-
-
-
-
-
-
-
-
-// next.addEventListener('click', () => 
-// {
-//     console.log(correct);
-
-//     if(qNum !== 0)
-//     {
-//         saveAns(qNum);
-//     }
-    
-//     answer.innerHTML="";
-//     question.innerHTML = 
-//     `
-//     <div>${questionsArray[qNum].Qtext}</div>
-//     `;
-    
-//     answer.innerHTML = 
-//     `
-//     ${displayAnswers(questionsArray[qNum].ans)}
-//     `;
-    
-//     if( qNum !== questionsArray.length )
-//     {
-//         ++qNum;
-//     }
-//     console.log(qNum);
-    
-//     if(qNum == questionsArray.length)
-//     {
-//         console.log('finished the quiz');
-//         answer.innerHTML= "FINISHED THE QUIZ GO TO RESULTS";
-//     }
-// });
-
-
-// pre.addEventListener('click', () => 
-// { 
-//     if(qNum !== 0)
-//     {
-//         --qNum;
-//     }
-//     answer.innerHTML="";
-//     question.innerHTML = 
-//     `
-//     <div>${questionsArray[qNum-1].Qtext}</div>
-//     `;
-
-//     answer.innerHTML = 
-//     `
-//     ${displayAnswers(questionsArray[qNum-1].ans)}
-//     `;
-// }); 
-
-
-// var displayAnswers = (answersObj) =>
-// {
-//     for (let i = 0; i < answersObj.length; i++) 
-//     {
-//         if(correct.includes(answersObj[i]))
-//         {
-//             answer.innerHTML += 
-//             `
-//                 <div class="option">${ answersObj[i]}</div>
-//             `;
-//         }
-//         else
-//         {
-//             answer.innerHTML += 
-//             `
-//                 <div class="option">${ answersObj[i] }</div>
-//             `;
-//         }
-//     }
-
-//     return answer.innerHTML;
-// }
-
-// var saveAns = (n) =>
-// {
-//     let chosen = document.querySelector('input:checked')
-//     --n;
-//     for (let i = 0; i < questionsArray[n].ans.length; i++) 
-//     {
-//         if(chosen.value == questionsArray[n].ans[i])
-//         {
-//             correct.push(questionsArray[n].ans[i]);
-//             break;
-//         }
-//     }
-// }
+    options.forEach( op => 
+    {
+        op.addEventListener('click', () => 
+        {
+            answered.push(op.innerHTML);
+            displayQ_A(qNum++);
+        });
+    });
+}
 
 /**
  * TODO:
